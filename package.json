@@ -1,0 +1,35 @@
+{
+    "name": "az-auth-web-node",
+    "version": "1.0.0",
+    "description": "A nodejs service with a web frontend that authenticates with Azure.",
+    "main": "server.js",
+    "scripts": {
+      "start": "ts-node server.ts",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/code4clouds/az-auth-web-node.git"
+    },
+    "keywords": [
+      "node",
+      "azure",
+      "login",
+      "service",
+      "server"
+    ],
+    "author": "Julio Colon",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/code4clouds/az-auth-web-node/issues"
+    },
+    "homepage": "https://github.com/code4clouds/az-auth-web-node#readme",
+    "dependencies": {
+      "express": "^4.18.2",
+      "ts-node": "^10.9.1"
+    },
+    "devDependencies": {
+      "@types/node": "^20.5.1"
+    }
+  }
+  
