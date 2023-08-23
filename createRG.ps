@@ -1,3 +1,5 @@
+#! /usr/bin/pwsh
+
 # Install and import the Azure PowerShell module
 Install-Module -Name Az -Force -AllowClobber
 Import-Module Az
@@ -5,8 +7,11 @@ Import-Module Az
 # Connect to Azure (you might need to log in interactively if not previously authenticated)
 Add-AzAccount -DeviceCode
 
+# Set the Azure subscription
+Set-AzContext -Subscription 8ff258b7-0b3b-4827-b240-cb8cfab73615
+
 # Define resource group and resource details
-$resourceGroupName = "MyResourceGroup"
+$resourceGroupName = "AMA_AAD_Demo"
 $location = "East US"
 
 # Create a new resource group
