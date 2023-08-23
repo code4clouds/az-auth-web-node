@@ -1,8 +1,11 @@
-FROM ubuntu
+FROM ubuntu:22.04
+
+EXPOSE 3000
+
 # Update the list of packages
 RUN apt-get update
 # Install pre-requisite packages.
-RUN apt-get install -y wget apt-transport-https software-properties-common
+RUN apt-get install -y wget apt-transport-https software-properties-common curl build-essential
 # Download the Microsoft repository GPG keys
 RUN wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb"
 # Register the Microsoft repository GPG keys
@@ -13,6 +16,12 @@ RUN rm packages-microsoft-prod.deb
 RUN apt-get update
 # Install PowerShell
 RUN apt-get install -y powershell
-# Start PowerShell
-# RUN pwsh
+# Install Nodejs
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash
+RUN apt-get install -y nodejs
+
+# Copy and download dependencies of the code
+COPY . .
+RUN npm install
+
 ENTRYPOINT [ "npm","start"]
