@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>CLI Output</title>
@@ -7,14 +7,34 @@
 
 <body>
     <h1>CLI Output</h1>
-    <iframe id="myIframe" src="/script" style="border:none;width:100%;height:400px;"></iframe>
-    
-    <!-- <script>
+    <button id="executeButton">Run PS Script</button>
+    <iframe id="myIframe" src="/console" style="border:none;width:100%;height:400px;"></iframe>
+    <script>
+        const executeButton = document.getElementById('executeButton');
+
+        executeButton.addEventListener('click', () => {
+            executeButton.disabled = true;
+            console.log('Button disabled');
+            fetch('/script', { method: 'POST' })  // Replace '/script' with the actual endpoint
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Script executed successfully');
+                    } else {
+                        console.error('Script execution failed');
+                    }
+
+                })
+                .catch(error => {
+                    console.error('An error occurred:', error);
+                });
+
+        });
+
         // Refresh the iframe every 5 seconds
         setInterval(() => {
             const iframe = document.getElementById('myIframe');
             iframe.src = iframe.src;
-        }, 5000); -->
+        }, 10000);
     </script>
 </body>
 
