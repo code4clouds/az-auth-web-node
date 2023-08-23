@@ -1,5 +1,5 @@
 # az-auth-web-node
-A nodejs service with a web frontend that authenticates with Azure
+A NodeJS service with a web frontend that authenticates with Azure.
 
 # Setup
 ``` bash
@@ -10,3 +10,8 @@ npm install
 ``` bash
 npm  start
 ```
+
+# Container
+`` bash
+docker build -t az-auth-web-node .
+``
