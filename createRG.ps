@@ -8,7 +8,7 @@ Import-Module Az
 Add-AzAccount -DeviceCode
 
 # Set the Azure subscription
-Set-AzContext -Subscription 8ff258b7-0b3b-4827-b240-cb8cfab73615
+Set-AzContext -Subscription <Subscription>
 
 # Define resource group and resource details
 $resourceGroupName = "AMA_AAD_Demo"
@@ -18,3 +18,5 @@ $location = "East US"
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 
 Write-Host "Azure resource creation completed."
+
+# Delete the config webapp for container
